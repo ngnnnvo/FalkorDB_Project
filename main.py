@@ -1,14 +1,7 @@
 
 from falkordb import FalkorDB
-
-# 1. Ket noi FalkorDB
 db = FalkorDB(host="localhost", port=6379)
-
-# Tao do thi rieng cho du lieu chinh thuc
 graph = db.select_graph("RuaTien_TV5")
-
-# 2. Tao 6 tai khoan va 7 giao dich
-# MERGE giup tranh tao trung du lieu khi chay lai
 
 accounts = [
     ("A1", "Nguyen Van An", "Chu muu"),
@@ -55,20 +48,14 @@ for tx_id, source, target, amount in transactions:
     )
 
 print("DA NAP DU LIEU THANH CONG!")
-
-# 3. Dem so tai khoan
 result = graph.query(
     "MATCH (a:Account) RETURN count(a)"
 )
 print("So tai khoan:", result.result_set[0][0])
-
-# 4. Dem so giao dich
 result = graph.query(
     "MATCH ()-[t:TRANSFER]->() RETURN count(t)"
 )
 print("So giao dich:", result.result_set[0][0])
-
-# 5. Tim chu trinh rua tien 4 buoc bat dau tai A1
 result = graph.query(
     """
     MATCH p = (a:Account {id: 'A1'})-[:TRANSFER*4]->(a)
@@ -79,3 +66,4 @@ result = graph.query(
 print("\nCAC CHU TRINH RUA TIEN:")
 for row in result.result_set:
     print(" -> ".join(row[0]))
+
