@@ -1,0 +1,15 @@
+KET QUA BENCHMARK (30 LAN)
+
+Truoc INDEX - Trung binh: 0.124490 ms
+Sau INDEX   - Trung binh: 0.056145 ms
+
+Truoc INDEX - Trung vi: 0.081946 ms
+Sau INDEX   - Trung vi: 0.038833 ms
+
+Truoc INDEX - Nho nhat: 0.063600 ms
+Sau INDEX   - Nho nhat: 0.023595 ms
+
+Truoc INDEX - Lon nhat: 0.546990 ms
+Sau INDEX   - Lon nhat: 0.238193 ms
+
+Ti le thoi gian trung vi: 2.11x
